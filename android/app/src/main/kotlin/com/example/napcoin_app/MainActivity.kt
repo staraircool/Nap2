@@ -1,4 +1,4 @@
-package com.example.napcoin_app
+package com.napnetwork.app
 
 import io.flutter.embedding.android.FlutterActivity
 
