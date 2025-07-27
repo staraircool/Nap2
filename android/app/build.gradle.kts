@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.napcoin_app"
+    namespace = "com.napnetwork.app"
     compileSdk = 34
     ndkVersion = "27.0.12077973"
 
