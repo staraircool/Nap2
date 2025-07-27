@@ -11,7 +11,7 @@ android {
     ndkVersion = "27.0.12077973"
 
     defaultConfig {
-        applicationId = "com.example.napcoin_app"
+        applicationId = "com.napnetwork.app" // ✅ Fixed this line
         minSdk = 24
         targetSdk = 34
         versionCode = 1
@@ -29,9 +29,9 @@ android {
 
     buildTypes {
         release {
-            isMinifyEnabled = false            // Don't shrink code
-            isShrinkResources = false          // ✅ Disable resource shrinking
-            signingConfig = signingConfigs.getByName("debug") // Use proper release config later
+            isMinifyEnabled = false
+            isShrinkResources = false
+            signingConfig = signingConfigs.getByName("debug") // ✅ Replace this with proper release signing before Play Store upload
         }
     }
 }
@@ -41,8 +41,4 @@ dependencies {
     implementation("com.google.firebase:firebase-analytics")
     implementation("com.google.firebase:firebase-auth")
     implementation("com.google.firebase:firebase-firestore")
-}
-
-flutter {
-    source = "../.."
 }
