@@ -29,8 +29,9 @@ android {
 
     buildTypes {
         release {
-            isMinifyEnabled = false
-            signingConfig = signingConfigs.getByName("debug")
+            isMinifyEnabled = false            // Don't shrink code
+            isShrinkResources = false          // ✅ Disable resource shrinking
+            signingConfig = signingConfigs.getByName("debug") // Use proper release config later
         }
     }
 }
