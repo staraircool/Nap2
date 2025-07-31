@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
-import 'package:napcoin_app/screens/login_screen.dart'; // Supabase Login screen
-import 'package:napcoin_app/screens/home_screen.dart';  // Show after login
+import 'package:napcoin_app/screens/auth_gate.dart'; // Correct import
+// Don't import login_screen or home_screen directly here
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   await Supabase.initialize(
-    url: 'https://YOUR-PROJECT.supabase.co',       // 🔁 Replace with your Supabase URL
-    anonKey: 'YOUR-ANON-KEY',                      // 🔁 Replace with your public anon key
+    url: 'https://frzcqnmcoadcneowkzfo.supabase.co',
+    anonKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZyemNxbm1jb2FkY25lb3dremZvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTM1OTYwMjMsImV4cCI6MjA2OTE3MjAyM30.zhLj2TfsOmoBN4FmWv34hE2scoVLHbtnFS1ioc-p44o',
   );
 
   runApp(const MyApp());
@@ -21,6 +21,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'NAPCOIN',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         brightness: Brightness.dark,
         primaryColor: Colors.black,
@@ -50,7 +51,7 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      home: const AuthGate(),
+      home: const AuthGate(), // Decides login or home screen
     );
   }
 }
