@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import '../home/home_screen.dart';
-import '../screens/sign_in_screen.dart'; // ✅ updated path
+import '../authenticate/sign_in_screen.dart'; // ✅ Correct path based on your folders
 
 class AuthGate extends StatelessWidget {
   const AuthGate({super.key});
