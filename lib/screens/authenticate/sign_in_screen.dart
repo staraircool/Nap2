@@ -1,12 +1,17 @@
-// lib/screens/sign_in_screen.dart
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 class SignInScreen extends StatelessWidget {
   const SignInScreen({super.key});
 
-  Future<void> _signInWithGoogle() async {
-    await Supabase.instance.client.auth.signInWithOAuth(Provider.google);
+  Future<void> _signInWithGoogle(BuildContext context) async {
+    try {
+      await Supabase.instance.client.auth.signInWithOAuth(Provider.google);
+    } catch (error) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Sign-in failed: $error')),
+      );
+    }
   }
 
   @override
@@ -15,7 +20,7 @@ class SignInScreen extends StatelessWidget {
       backgroundColor: Colors.black,
       body: Center(
         child: ElevatedButton.icon(
-          onPressed: _signInWithGoogle,
+          onPressed: () => _signInWithGoogle(context), // ✅ Pass context here
           icon: const Icon(Icons.login),
           label: const Text('Sign in with Google'),
           style: ElevatedButton.styleFrom(
